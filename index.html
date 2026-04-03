@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chat Messenger Demo</title>
+  </head>
+  <body>
+    <h1>Website của tôi</h1>
+    <p>Chat Messenger nằm góc dưới bên phải 👇</p>
+
+    <!-- Messenger Plugin -->
+    <div id="fb-root"></div>
+
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js"
+    ></script>
+
+    <div
+      class="fb-customerchat"
+      attribution="biz_inbox"
+      page_id="100070051623834"
+      logged_in_greeting="Xin chào! Mình có thể giúp gì cho bạn?"
+      logged_out_greeting="Xin chào! Mình có thể giúp gì cho bạn?"
+    ></div>
+  </body>
+</html>
