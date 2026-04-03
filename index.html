@@ -2,21 +2,27 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <title>Chat Messenger Demo</title>
+    <title>Messenger Extensions</title>
   </head>
   <body>
-    <h1>Website của tôi</h1>
-    <p>Chat Messenger nằm góc dưới bên phải 👇</p>
-
-    <!-- Messenger Plugin -->
-    <div id="fb-root"></div>
+    <h1>Test Messenger Extensions</h1>
 
     <script>
-      window.fbAsyncInit = function () {
-        FB.init({
-          xfbml: true,
-          version: "v18.0",
-        });
+      window.extAsyncInit = function () {
+        if (window.MessengerExtensions) {
+          console.log("Messenger Extensions loaded");
+
+          // Ví dụ: lấy context user
+          MessengerExtensions.getContext(
+            "100070051623834",
+            function success(response) {
+              console.log("User context:", response);
+            },
+            function error(err) {
+              console.log("Error:", err);
+            },
+          );
+        }
       };
 
       (function (d, s, id) {
@@ -25,17 +31,9 @@
         if (d.getElementById(id)) return;
         js = d.createElement(s);
         js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js"; // ⚠️ dùng en_US cho ổn định
+        js.src = "https://connect.facebook.net/en_US/messenger.Extensions.js";
         fjs.parentNode.insertBefore(js, fjs);
-      })(document, "script", "facebook-jssdk");
+      })(document, "script", "Messenger");
     </script>
-
-    <div
-      class="fb-customerchat"
-      attribution="biz_inbox"
-      page_id="100070051623834"
-      logged_in_greeting="Xin chào! Mình có thể giúp gì cho bạn?"
-      logged_out_greeting="Xin chào! Mình có thể giúp gì cho bạn?"
-    ></div>
   </body>
 </html>
