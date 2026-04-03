@@ -7,33 +7,21 @@
   <body>
     <h1>Test Messenger Extensions</h1>
 
-    <script>
-      window.extAsyncInit = function () {
-        if (window.MessengerExtensions) {
-          console.log("Messenger Extensions loaded");
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0"
+      nonce="abc123"
+    ></script>
 
-          // Ví dụ: lấy context user
-          MessengerExtensions.getContext(
-            "100070051623834",
-            function success(response) {
-              console.log("User context:", response);
-            },
-            function error(err) {
-              console.log("Error:", err);
-            },
-          );
-        }
-      };
-
-      (function (d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://connect.facebook.net/en_US/messenger.Extensions.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      })(document, "script", "Messenger");
-    </script>
+    <!-- Chat Plugin -->
+    <div
+      class="fb-customerchat"
+      attribution="biz_inbox"
+      page_id="100070051623834"
+    ></div>
   </body>
 </html>
